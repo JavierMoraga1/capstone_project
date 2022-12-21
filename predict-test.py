@@ -11,6 +11,7 @@ if config["host"] == None:
   host = 'localhost:9696'
 else:
   host = config["host"]
+# host = 'capstone-serving-env.eba-vbshenz3.eu-west-3.elasticbeanstalk.com'
 # host = 'churn-serving-env.eba-vupegvrr.eu-west-3.elasticbeanstalk.com'
 
 url = f'http://{host}/predict'
