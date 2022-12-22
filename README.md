@@ -43,17 +43,13 @@ ___Accuracy = TP + TN / (TP + TN + FP + FN)___ where TP = True Positives, TN = T
 ___
 1. **The dataset has a good amount of missing values"** both in the training data set and in the test data set
 
-# MAS DIFICULTADES ???
-
 ## Approach and solutions
 ___
 - For this classification problem I've trained the different types of algorithms seen in the course so far and I've evaluated them using **accuracy**
-- I've selectioned ___XGBoost___ as the best model and tuned its parameters.
-- Since the dataset is very large, the model metrics seem to keep improving (very slightly) with a large number of iterations, but the size of the model also increases a lot and its perfomance degrades. For the competition I have used my best model without overfitting (4000 iterations) but for a deployment I think a lightweight model with a lot less iterations (e.g. 200) would probably work better
-- Although the Kaggle's competition ended 5 years ago, I have submitted my results for evaluation. The RMSLE score (0.38944) is in the 33th percentile
-- ___Future improvement___: I think a good improvement would be to try to classify each trip ir order to separate the main population and the outliers and apply a different model for each case
+- I've selectioned ___XGBoost___ as the best model and tuned its parameters. 
+It is worth mentioning that the differences between models have been very small.
+- Although the model is very light (around 40k) and has needed very few iterations, it seems to offer quite a good result.
 
-# REVISAR ESTOS PUNTOS MÁS ADELANTE
 
 ## Repo description
 ___
@@ -107,17 +103,16 @@ Assuming you have a AWS account, you can deploy the image to AWS Elastic Beansta
 - Init EB configuration => `eb init -p docker -r eu-west-3 ss_titanic` and authenticate with your credentials (If you want you can change eu-west-3 for your local zone)
 - Create and deploy the app => `eb create ss_titanic_env`
 
-(**Until the end of the project review period the application will remain deployed on AWS Elastic Beanstalk** and accessible on tripduration-env.eba-3sk54gy3.eu-west-3.elasticbeanstalk.com)
-# COLOCAR la URL CORRECTA
+(**Until the end of the project review period the application will remain deployed on AWS Elastic Beanstalk** and accessible on ss-titanic-env.eba-mbs3xdhm.eu-west-3.elasticbeanstalk.com)
+
 ## Using the service
 ___
 For a simple test request you have several options. You could:
-1) Run the test script => `python predict_test.py` (needs `requests`. To install => `pip install requests`)
+1) Run the test script locally => `python predict_test.py` (needs `requests`. To install => `pip install requests`)
 
-  Optional parameter =>` -H --host` (`localhost:9696` by default). For example, if you want test the AWS deployment you can run => `python predict_test.py --host tripduration-env.eba-3sk54gy3.eu-west-3.elasticbeanstalk.com`
+  Optional parameter =>` -H --host` (`localhost:9696` by default). For example, if you want test the AWS deployment you can run => `python predict_test.py --host ss-titanic-env.eba-mbs3xdhm.eu-west-3.elasticbeanstalk.com`
 
-# COLOCAR la URL CORRECTA
-2) Or use the browser for access the `/docs` endpoint => `localhost:9696/docs`  or `tripduration-env.eba-3sk54gy3.eu-west-3.elasticbeanstalk.com/docs` and then use the UI to send a request (POST) to the `/predict` endpoint
+2) Or use the browser for access the `/docs` endpoint => `localhost:9696/docs`  or `ss-titanic-env.eba-mbs3xdhm.eu-west-3.elasticbeanstalk.com/docs` and then use the UI to send a request (POST) to the `/predict` endpoint
 
 3) Or use curl, Postman or another similar tool to send the request to the `/predict` endpoint
 
