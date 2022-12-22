@@ -84,10 +84,10 @@ or
 1. Run directly inside the virtual environment => `pipenv run train.py`
 
 Optional parameters:
-- `-E --eta` (default 0.05)
-- `-D --maxdepth` (default 10)
-- `-R --nrounds` (default 200)
-- `-S --nsplits` (default 5)
+- `-E --eta` (default 0.3)
+- `-D --maxdepth` (default 2)
+- `-R --nrounds` (default 40)
+- `-S --nsplits` (default 10)
 - `-O --output` (default `XGB_model.bin`)
 ## Run the app locally (on port 9696)
 ___

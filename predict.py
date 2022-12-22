@@ -58,7 +58,7 @@ def predict(passenger: Passenger):
     y_pred = model.predict(dX)
 
     result = {
-        'Transported': int(y_pred)
+        'Transported': float(y_pred)
     }
     
     return result
