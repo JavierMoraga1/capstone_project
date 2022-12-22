@@ -21,13 +21,13 @@ parser.add_argument("-O","--output", help="output file")
 args = parser.parse_args()
 config = vars(args)
 
-eta = 0.01
+eta = 0.001
 if config["eta"] != None:
   eta = float(config["eta"])
-max_depth = 6
+max_depth = 4
 if config["maxdepth"] != None:
   max_depth = int(config["maxdepth"])
-xgb_num_rounds = 200
+xgb_num_rounds = 180
 if config["nrounds"] != None:
   xgb_num_rounds = int(config["nrounds"])
 n_splits = 5
